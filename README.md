@@ -4,8 +4,12 @@ This is an implementation of the paper [ForensicsForest Family: A Series of Mult
 
 ## **Requirements**
 
+python 3.7
+
 ## **Quick Start**
 
 Install the package *deep-forest* is available via PyPI.
 
 `pip install deep-forest`
+
+
