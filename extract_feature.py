@@ -8,18 +8,18 @@ import dlib
 
 predictor_path = "/media/lijiucui/新加卷/DeepForest/shape_predictor_68_face_landmarks.dat"
 
-read_path = "./0/"
+read_path = "./train/0/"
 # The path of input images
 
-save_patch_path = "./N=4/0_fake/"
+save_patch_path = "./train/N=4/0_fake/patch/"
 # The path of image patchs
 
-save_feature_path1 = "./N=4/0_fake/hist/"
-save_feature_path2 = "./N=4/0_fake/spec/"
-save_feature_path3 = "./N=4/0_fake/landmarks/"
+save_feature_path1 = "./train/N=4/0_fake/hist/"
+save_feature_path2 = "./train/N=4/0_fake/spec/"
+save_feature_path3 = "./train/N=4/0_fake/landmarks/"
 # The path of every type of input features
 
-save_path = "./N=4/0_fake/"
+save_path = "./train/N=4/0_fake/"
 # The path of final input features
 
 # In the division process, m and n define the number of columns and rows
