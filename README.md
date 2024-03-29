@@ -18,8 +18,14 @@ Install the package *deep-forest* is available via PyPI.
 
 ```ruby
 StyleGAN
-|---0_fake
-|---1_real
+|---train
+    |---0
+    |---1
+    |---train.csv
+|---test
+    |---0
+    |---1
+    |---test.csv
 ```
 
 Use the `get_csv.py` to obtain the CSV file of the dataset.
