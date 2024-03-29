@@ -13,12 +13,17 @@ python 3.7
 Install the package *deep-forest* is available via PyPI.
 
 `pip install deep-forest`
-## Dataset Structure
+
+## Folder Structure
+
 ```ruby
 StyleGAN
 |---0_fake
 |---1_real
 ```
+
+Use the `get_csv.py` to obtain the CSV file of the dataset.
+
 ## Input Feature Extract
 We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequency features from N(N ≥ 1) patches of input images. Specially, we extract biology features from the whole
 image. You can extract the input features for each scale using `extract_feature.py` (Our code uses N=4 as an example).
