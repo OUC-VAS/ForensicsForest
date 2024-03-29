@@ -39,6 +39,8 @@ Note that `extract_feature.py` is only for the folder corresponding to the gener
 
 ## Multi-scale Ensemble
 
+Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle. Then run `main1.py` for final results.
+
 # Hybrid ForensicsForest
 
 # Divide-and-Conquer ForensicsForest
