@@ -50,4 +50,4 @@ For the `cascade.py` of package *deep-forest*, you can replace it with `Hybrid F
 
 # Divide-and-Conquer ForensicsForest
 
-For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C FF cascade.py`.
+For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C FF cascade.py`. For the `layer.py` of package *deep-forest*, you can replace it with `D-and-C FF layer.py`.
