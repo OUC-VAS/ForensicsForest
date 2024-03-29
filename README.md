@@ -34,6 +34,7 @@ Use the `get_csv.py` to obtain the CSV file of the dataset.
 We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequency features from N(N ≥ 1) patches of input images. Specially, we extract biology features from the whole
 image. You can extract the input features for each scale using `extract_feature.py` (Our code uses N=4 as an example).
 
+Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `np.hstack((a, b))` to concatenate the extracted features.
 ## Hierarchical Cascade Forest
 
 ## Multi-scale Ensemble
