@@ -49,12 +49,10 @@ X_test = np.array(a)
 label = pd.read_csv('./train/train.csv')
 label = label["label"]
 y_train = np.array(label)
-print(y_train.shape)
 
 label = pd.read_csv('./test/test.csv')
 label = label["label"]
 y_test = np.array(label)
-print(y_test.shape)
 
 
 model = CascadeForestClassifier(random_state=1)
