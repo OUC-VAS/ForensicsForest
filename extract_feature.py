@@ -8,7 +8,7 @@ import dlib
 
 predictor_path = "/media/lijiucui/新加卷/DeepForest/shape_predictor_68_face_landmarks.dat"
 
-read_path = "./0_fake/"
+read_path = "./0/"
 # The path of input images
 
 save_patch_path = "./N=4/0_fake/"
