@@ -21,8 +21,7 @@ StyleGAN
 ```
 ## Input Feature Extract
 We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequency features from N(N ≥ 1) patches of input images. Specially, we extract biology features from the whole
-image. You can extract the appearance and frequency features for each scale using `N=1.py`, `N=2.py`, `N=3.py`, `N=4.py`, and extract biology features using `landmarks.py`.
-
+image. You can extract the input features for each scale using `extract_feature.py` (Our code uses N=4 as an example).
 
 ## Hierarchical Cascade Forest
 
