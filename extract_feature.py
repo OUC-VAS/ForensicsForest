@@ -22,6 +22,7 @@ save_feature_path3 = "./N=4/0_fake/landmarks/"
 save_path = "./N=4/0_fake/"
 # The path of final input features
 
+# In the division process, m and n define the number of columns and rows
 m = 2
 n = 2
 
