@@ -38,10 +38,16 @@ image. You can extract the input features for each scale using `extract_feature.
 Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features.
 ## Hierarchical Cascade Forest
 
+For the `cascade.py` of package *deep-forest*, you can replace it with `ForensicsForest cascade.py`.
+
 ## Multi-scale Ensemble
 
 Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle. Then run `main1.py` for final results.
 
 # Hybrid ForensicsForest
 
+For the `cascade.py` of package *deep-forest*, you can replace it with `Hybrid FF cascade.py`.
+
 # Divide-and-Conquer ForensicsForest
+
+For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C FF cascade.py`.
