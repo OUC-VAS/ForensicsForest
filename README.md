@@ -1,4 +1,4 @@
-This is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://ieeexplore.ieee.org/abstract/document/10219895)
+This is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964)
 
 If you find our ForensicsForest useful to your research, please cite it as follows:
 
