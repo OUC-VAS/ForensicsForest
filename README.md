@@ -1,6 +1,16 @@
 This is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://ieeexplore.ieee.org/abstract/document/10219895)
 
 If you find our ForensicsForest useful to your research, please cite it as follows:
+
+```
+@article{lu2023forensicsforest,
+title={ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces},
+author={Lu, Jiucui and Li, Yuezun and Zhou, Jiaran and Li, Bin and Dong, Junyu and Lyu, Siwei},
+journal={arXiv preprint arXiv:2308.00964},
+year={2023}
+}
+```
+
 # Deep Forest
 
 ## **Requirements**
