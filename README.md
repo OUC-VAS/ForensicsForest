@@ -1,4 +1,6 @@
-This is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964)
+This is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964). 
+
+This paper is extended from our ICME conference paper(Oral) [Forensics Forest: Multi-scale Hierarchical Cascade Forest for Detecting GAN-generated Faces](https://ieeexplore.ieee.org/abstract/document/10219895). 
 
 If you find our ForensicsForest useful to your research, please cite it as follows:
 
@@ -8,6 +10,17 @@ title={ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Fore
 author={Lu, Jiucui and Zhou, Jiaran and Li, Bin and Dong, Junyu and Lyu, Siwei and Li, Yuezun},
 journal={IEEE Transactions on Information Forensics and Security},
 year={2024}
+}
+```
+
+```
+@inproceedings{lu2023forensics,
+  title={Forensics Forest: Multi-scale Hierarchical Cascade Forest for Detecting GAN-generated Faces},
+  author={Lu, Jiucui and Li, Yuezun and Zhou, Jiaran and Li, Bin and Lyu, Siwei},
+  booktitle={2023 IEEE International Conference on Multimedia and Expo (ICME)},
+  pages={2309--2314},
+  year={2023},
+  organization={IEEE}
 }
 ```
 
