@@ -6,7 +6,7 @@ import radialProfile
 from scipy.interpolate import griddata
 import dlib
 
-predictor_path = "/media/lijiucui/新加卷/DeepForest/shape_predictor_68_face_landmarks.dat"
+predictor_path = "./shape_predictor_68_face_landmarks.dat"
 
 read_path = "./train/0/"
 # The path of input images
