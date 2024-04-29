@@ -13,7 +13,7 @@ deep-forest
 
 ## Dataset Preparation
 
-We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. The folder structure is shown as follows, and you can use the `get_csv.py` to obtain the CSV file of the dataset.
+We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. The folder structure is shown as follows.
 
 ```ruby
 StyleGAN
@@ -26,6 +26,9 @@ StyleGAN
     |---1
     |---test.csv
 ```
+To obtain the CSV file of the dataset, run the following script in your console.
+
+`run get_csv.py`
 
 ## Input Feature Extract
 We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequency features from N(N ≥ 1) patches of input images. Specially, we extract biology features from the whole
