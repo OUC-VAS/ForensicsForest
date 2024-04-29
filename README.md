@@ -28,13 +28,24 @@ StyleGAN
 ```
 To obtain the CSV file of the dataset, run the following script in your console.
 
-`run get_csv.py`
+```
+run get_csv.py
+```
 
 ## Input Feature Extract
 We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequency features from N(N ≥ 1) patches of input images. Specially, we extract biology features from the whole
-image. You can extract the input features for each scale using `extract_feature.py` (Our code uses N=4 as an example).
+image. You can extract the input features for each scale using `extract_feature.py` as following.(Our code uses N=4 as an example).
 
-Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features.
+```
+run extract_feature.py
+```
+
+Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
+
+```
+run Merge.py
+```
+
 ## Hierarchical Cascade Forest
 
 For the `cascade.py` of package *deep-forest*, you can replace it with `ForensicsForest cascade.py`.
