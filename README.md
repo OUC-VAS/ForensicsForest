@@ -13,7 +13,7 @@ deep-forest
 
 ## Dataset Preparation
 
-We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. The folder structure is shown as follows.
+We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. The folder structure is shown as following.
 
 ```ruby
 StyleGAN
@@ -65,6 +65,8 @@ Then run `main1.py` for final results as following.
 ```
 run main1.py
 ```
+
+**Notice:** For Hybrid ForensicsForest and Divide-and-Conquer ForensicsForest, you just need to change Module *Hierarchical Cascade Forest* as following.
 
 # Hybrid ForensicsForest
 
