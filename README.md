@@ -6,11 +6,19 @@ This repository is an implementation of the paper [ForensicsForest Family: A Ser
 # ForensicsForest
 
 ## **Requirements**
-
+```
 python 3.7
-
-deep-forest
-
+numpy
+pandas
+deep-forest 0.1.7
+dlib 19.24.0
+scikit-learn 1.0.2
+matplotlib
+opency-python
+xgboost 1.6.2
+torch 1.13.1
+torchvision 0.14.1
+```
 ## Dataset Preparation
 
 We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. The folder structure is shown as following.
