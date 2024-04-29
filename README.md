@@ -52,7 +52,19 @@ For the `cascade.py` of package *deep-forest*, you can replace it with `Forensic
 
 ## Multi-scale Ensemble
 
-Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle. Then run `main1.py` for final results.
+Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle as following. 
+
+```
+run main2.py
+run main3.py
+run main4.py
+```
+
+Then run `main1.py` for final results as following.
+
+```
+run main1.py
+```
 
 # Hybrid ForensicsForest
 
