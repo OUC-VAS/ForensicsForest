@@ -1,18 +1,19 @@
-# Deep Forest
+# Introduction
+This repository is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964) presented in TIFS 2024. This paper describes ForensicsForest Family, a novel set of forest-based methods to detect GAN-generate faces. In contrast to the recent efforts of using CNNs, we investigate the feasibility of using forest models and introduce a series of multi-scale hierarchical cascade forests, which are ForensicsForest, Hybrid ForensicsForest, and Divide-and-Conquer ForensicsForest, respectively. 
+
+![image](/Overview.png)
+
+# ForensicsForest
 
 ## **Requirements**
 
 python 3.7
 
-## **Quick Start**
+deep-forest
 
-Install the package *deep-forest* is available via PyPI.
+## Dataset Preparation
 
-`pip install deep-forest`
-
-# ForensicsForest
-
-## Folder Structure
+We include the dataset loaders for several commonly-used generated-faces datasets, i.e.,  [StyleGAN](https://github.com/NVlabs/stylegan) ,  [StyleGAN2](https://github.com/NVlabs/stylegan2) , and  [StyleGAN3](https://github.com/NVlabs/stylegan3) . You can enter the dataset website to download the original data. 
 
 ```ruby
 StyleGAN
