@@ -70,7 +70,7 @@ run merge.py
 
 ## Hierarchical Cascade Forest
 
-For the `cascade.py` of package *deep-forest*, you can replace it with `ForensicsForest cascade.py`.
+For the `cascade.py` of package *deep-forest*, you can replace it with `ForensicsForest_cascade.py`.
 
 ## Multi-scale Ensemble
 
@@ -96,11 +96,11 @@ run main1.py --dataset_path /media/ForensicsForest-main/StyleGAN/
 
 # Hybrid ForensicsForest
 
-For the `cascade.py` of package *deep-forest*, you can replace it with `Hybrid FF cascade.py`.
+For the `cascade.py` of package *deep-forest*, you can replace it with `Hybrid_FF_cascade.py`.
 
 # Divide-and-Conquer ForensicsForest
 
-For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C FF cascade.py`. For the `layer.py` of package *deep-forest*, you can replace it with `D-and-C FF layer.py`.
+For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C_FF_cascade.py`. For the `layer.py` of package *deep-forest*, you can replace it with `D-and-C_FF_layer.py`.
 
 # Citation
 
