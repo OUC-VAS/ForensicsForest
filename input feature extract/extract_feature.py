@@ -5,26 +5,29 @@ import os
 import radialProfile
 from scipy.interpolate import griddata
 import dlib
+import argparse
 
-predictor_path = "./shape_predictor_68_face_landmarks.dat"
+parser = argparse.ArgumentParser(description='Process some paths.')
 
-read_path = "./train/0/"
-# The path of input images
+parser.add_argument('--m', type=int, default=2)
 
-save_patch_path = "./train/N=4/0_fake/patch/"
-# The path of image patchs
+parser.add_argument('--n', type=int, default=2)
 
-save_feature_path1 = "./train/N=4/0_fake/hist/"
-save_feature_path2 = "./train/N=4/0_fake/spec/"
-save_feature_path3 = "./train/N=4/0_fake/landmarks/"
-# The path of every type of input features
+parser.add_argument('--detector_path', type=str, default='./shape_predictor_68_face_landmarks.dat',)
 
-save_path = "./train/N=4/0_fake/"
-# The path of final input features
+parser.add_argument('--read_path', type=str, default='./0_fake/', help='The path of input images')
 
-# In the division process, m and n define the number of columns and rows
-m = 2
-n = 2
+parser.add_argument('--save_patch_path', type=str, default='./N=4/0_fake/', help='The path of image patchs')
+
+parser.add_argument('--save_feature_path1', type=str, default='./N=4/0_fake/hist/', help='The path of appearance features')
+
+parser.add_argument('--save_feature_path2', type=str, default='./N=4/0_fake/spec/', help='The path of frequency features')
+
+parser.add_argument('--save_feature_path3', type=str, default='./N=4/0_fake/landmarks/', help='The path of biology features')
+
+parser.add_argument('--feature_path', type=str, default='./N=4/0_fake/', help='The path of final input features')
+
+args = parser.parse_args()
 
 N = 88
 epsilon = 1e-8
@@ -53,15 +56,15 @@ def divide_method(img, m, n):
 
 
 def save_patchs(title, divide_image):
-    if not os.path.isdir(save_patch_path):
-        os.makedirs(save_patch_path)
+    if not os.path.isdir(args.save_patch_path):
+        os.makedirs(args.save_patch_path)
     m, n = divide_image.shape[0], divide_image.shape[1]
     for i in range(m):
         for j in range(n):
             plt.imshow(divide_image[i, j, :])
             plt.axis('off')
             plotPath = str(title) + "+" + str(i) + str(j) + '.png'
-            plt.imsave(save_patch_path + plotPath, divide_image[i, j, :])
+            plt.imsave(args.save_patch_path + plotPath, divide_image[i, j, :])
 
 
 def extract_histgram(save_patch_path, save_feature_path1):
@@ -89,7 +92,7 @@ def extract_histgram(save_patch_path, save_feature_path1):
         hist_B = cv2.calcHist([B], [0], None, [256], [0, 256])
         a3.append(hist_B.flatten())
 
-        if i % (m * n) == 0:
+        if i % (args.m * args.n) == 0:
             a1 = np.array(a1, dtype=object)
             a2 = np.array(a2, dtype=object)
             a3 = np.array(a3, dtype=object)
@@ -158,7 +161,7 @@ def extract_spectrum(save_patch_path, save_feature_path2):
         psd1D_org = [float(format(x, '.2g')) for x in psd1D_org]
         b3.append(list(psd1D_org))
 
-        if i % (m * n) == 0:
+        if i % (args.m * args.n) == 0:
             b1 = np.array(b1, dtype=object)
             b2 = np.array(b2, dtype=object)
             b3 = np.array(b3, dtype=object)
@@ -181,7 +184,7 @@ def extract_landmarks(read_path, save_feature_path3):
         item1 = os.path.splitext(item)[0]
         image = cv2.imread(os.path.join(read_path, item))
         detector = dlib.get_frontal_face_detector()
-        predictor = dlib.shape_predictor(predictor_path)
+        predictor = dlib.shape_predictor(args.predictor_path)
         dets = detector(image, 1)
 
         # If the landmarks cannot be detected, -1 is used instead of the coordinate
@@ -278,20 +281,20 @@ def merge(save_feature_path1, save_feature_path2, save_feature_path3, save_path)
 
 
 if __name__ == '__main__':
-    for item in os.listdir(path=read_path):
-        img = cv2.imread(os.path.join(read_path, item))
+    for item in os.listdir(path=args.read_path):
+        img = cv2.imread(os.path.join(args.read_path, item))
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
         title = os.path.splitext(item)[0]
 
         h, w = img.shape[0], img.shape[1]
-        divide_image = divide_method(img, m + 1, n + 1)
+        divide_image = divide_method(img, args.m + 1, args.n + 1)
         save_patchs(title, divide_image)
 
-    extract_histgram(save_patch_path, save_feature_path1)
+    extract_histgram(args.save_patch_path, args.save_feature_path1)
 
-    extract_spectrum(save_patch_path, save_feature_path2)
+    extract_spectrum(args.save_patch_path, args.save_feature_path2)
 
-    extract_landmarks(read_path, save_feature_path3)
+    extract_landmarks(args.read_path, args.save_feature_path3)
 
-    merge(save_feature_path1, save_feature_path2, save_feature_path3, save_path)
+    merge(args.save_feature_path1, args.save_feature_path2, args.save_feature_path3, args.feature_path)
