@@ -17,7 +17,7 @@ parser.add_argument('--detector_path', type=str, default='./shape_predictor_68_f
 
 parser.add_argument('--read_path', type=str, default='./train/0_fake/', help='The path of input images')
 
-parser.add_argument('--save_patch_path', type=str, default='./train/N=4/0_fake/', help='The path of image patchs')
+parser.add_argument('--save_patch_path', type=str, default='./N=4/train/0_fake/', help='The path of image patchs')
 
 args = parser.parse_args()
 
