@@ -77,23 +77,19 @@ For the `cascade.py` of package *deep-forest*, you can replace it with `Forensic
 Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle as following.
 
 ```
-run main2.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN/
+run main2.py --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 ```
-run main3.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN/
+run main3.py --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 ```
-run main4.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN/
+run main4.py --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 
 Then run `main1.py` for final results as following.
 
 ```
-run main1.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN/
+run main1.py --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 
 **Notice:** For Hybrid ForensicsForest and Divide-and-Conquer ForensicsForest, you just need to change Module *Hierarchical Cascade Forest* as following.
