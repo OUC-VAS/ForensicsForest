@@ -15,17 +15,19 @@ parser.add_argument('--n', type=int, default=2)
 
 parser.add_argument('--detector_path', type=str, default='./shape_predictor_68_face_landmarks.dat',)
 
-parser.add_argument('--read_path', type=str, default='./0_fake/', help='The path of input images')
+parser.add_argument('--read_path', type=str, default='./train/0_fake/', help='The path of input images')
 
-parser.add_argument('--save_patch_path', type=str, default='./N=4/0_fake/', help='The path of image patchs')
+parser.add_argument('--save_patch_path', type=str, default='./train/N=4/0_fake/', help='The path of image patchs')
 
-parser.add_argument('--save_feature_path1', type=str, default='./N=4/0_fake/hist/', help='The path of appearance features')
+args = parser.parse_args()
 
-parser.add_argument('--save_feature_path2', type=str, default='./N=4/0_fake/spec/', help='The path of frequency features')
+parser.add_argument('--save_feature_path1', type=str, default=args.save_patch_path + 'hist/', help='The path of appearance features')
 
-parser.add_argument('--save_feature_path3', type=str, default='./N=4/0_fake/landmarks/', help='The path of biology features')
+parser.add_argument('--save_feature_path2', type=str, default=args.save_patch_path + 'spec/', help='The path of frequency features')
 
-parser.add_argument('--feature_path', type=str, default='./N=4/0_fake/', help='The path of final input features')
+parser.add_argument('--save_feature_path3', type=str, default=args.save_patch_path + 'landmarks/', help='The path of biology features')
+
+parser.add_argument('--feature_path', type=str, default=args.save_patch_path, help='The path of final input features')
 
 args = parser.parse_args()
 
