@@ -12,8 +12,6 @@ parser = argparse.ArgumentParser(description='Process some paths.')
 
 parser.add_argument('--dataset_path', type=str, default='./StyleGAN/', help='The path of final input features')
 
-parser.add_argument('--csv_path', type=str, default='./StyleGAN/')
-
 args = parser.parse_args()
 
 tic = time.time()
@@ -37,11 +35,11 @@ X_test4 = np.load(args.dataset_path + 'N=4/X_test4.npy', allow_pickle=True)
 
 
 # label====================================================================================================================
-label = pd.read_csv(args.csv_path + 'train.csv')
+label = pd.read_csv(args.dataset_path + 'train.csv')
 label = label["label"]
 y_train = np.array(label)
 
-label = pd.read_csv(args.csv_path + 'test.csv')
+label = pd.read_csv(args.dataset_path + 'test.csv')
 label = label["label"]
 y_test = np.array(label)
 
