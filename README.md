@@ -28,11 +28,11 @@ StyleGAN
 |---train
     |---0
     |---1
-    |---train.csv
 |---test
     |---0
     |---1
-    |---test.csv
+|---train.csv
+|---test.csv
 ```
 To obtain the CSV file of the dataset, run the following script in your console.
 
