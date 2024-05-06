@@ -38,8 +38,8 @@ To obtain the CSV file of the dataset, run the following script in your console.
 
 ```
 run get_csv.py
---dataset_path ./StyleGAN/train/ \
-save_csv_path ./StyleGAN/train/train.csv
+     --dataset_path ./StyleGAN/train/ \
+     --save_csv_path ./StyleGAN/train/train.csv
 ```
 
 ## Input Feature Extract
