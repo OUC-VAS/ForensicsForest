@@ -10,7 +10,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some paths.')
 
-parser.add_argument('--dataset_path', type=str, default='./StyleGAN/', help='The path of final input features')
+parser.add_argument('--dataset_path', type=str, default='/media/ForensicsForest-main/StyleGAN/', help='The path of final input features')
 
 args = parser.parse_args()
 
@@ -23,7 +23,6 @@ X_train2 = np.load(args.dataset_path + 'N=4/X_train2.npy', allow_pickle=True)
 X_train3 = np.load(args.dataset_path + 'N=4/X_train3.npy', allow_pickle=True)
 
 X_train4 = np.load(args.dataset_path + 'N=4/X_train4.npy', allow_pickle=True)
-
 
 X_test1 = np.load(args.dataset_path + 'N=4/X_test1.npy', allow_pickle=True)
 
