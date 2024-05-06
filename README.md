@@ -47,7 +47,12 @@ We use four scales as N = 1, 2, 3, 4. Then we can extract appearance and frequen
 image. You can extract the input features for each scale using `extract_feature.py` as following.(Our code uses N=4 as an example).
 
 ```
-run extract_feature.py --m --n --detector_path --read_path --save_patch_path --save_feature_path1 --save_feature_path2 --save_feature_path3 --feature_path
+run extract_feature.py
+    --m 2  \
+    --n 2  \
+    --detector_path ./shape_predictor_68_face_landmarks.dat  \
+    --read_path  ./0_fake/  \
+    --feature_path  ./N=4/0_fake/  
 ```
 
 Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
