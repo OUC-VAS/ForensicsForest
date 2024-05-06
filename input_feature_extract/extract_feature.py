@@ -13,21 +13,19 @@ parser.add_argument('--m', type=int, default=2)
 
 parser.add_argument('--n', type=int, default=2)
 
-parser.add_argument('--detector_path', type=str, default='./shape_predictor_68_face_landmarks.dat',)
+parser.add_argument('--detector_path', type=str, default='/media/ForensicsForest-main/shape_predictor_68_face_landmarks.dat',)
 
-parser.add_argument('--read_path', type=str, default='./train/0_fake/', help='The path of input images')
+parser.add_argument('--read_path', type=str, default='/media/ForensicsForest-main/StyleGAN/train/0/', help='The path of input images')
 
-parser.add_argument('--save_patch_path', type=str, default='./N=4/train/0_fake/', help='The path of image patchs')
+parser.add_argument('--save_patch_path', type=str, default='/media/ForensicsForest-main/StyleGAN/N=4/patch/train/0/', help='The path of image patchs')
 
-args = parser.parse_args()
+parser.add_argument('--save_feature_path1', type=str, default='/media/ForensicsForest-main/StyleGAN/N=4/train/0/hist/', help='The path of appearance features')
 
-parser.add_argument('--save_feature_path1', type=str, default=args.save_patch_path + 'hist/', help='The path of appearance features')
+parser.add_argument('--save_feature_path2', type=str, default='/media/ForensicsForest-main/StyleGAN/N=4/train/0/spec/', help='The path of frequency features')
 
-parser.add_argument('--save_feature_path2', type=str, default=args.save_patch_path + 'spec/', help='The path of frequency features')
+parser.add_argument('--save_feature_path3', type=str, default='/media/ForensicsForest-main/StyleGAN/N=4/train/0/landmarks/', help='The path of biology features')
 
-parser.add_argument('--save_feature_path3', type=str, default=args.save_patch_path + 'landmarks/', help='The path of biology features')
-
-parser.add_argument('--feature_path', type=str, default=args.save_patch_path, help='The path of final input features')
+parser.add_argument('--save_feature_path', type=str, default='/media/ForensicsForest-main/StyleGAN/N=4/train/0/', help='The path of final input features')
 
 args = parser.parse_args()
 
@@ -186,7 +184,7 @@ def extract_landmarks(read_path, save_feature_path3):
         item1 = os.path.splitext(item)[0]
         image = cv2.imread(os.path.join(read_path, item))
         detector = dlib.get_frontal_face_detector()
-        predictor = dlib.shape_predictor(args.predictor_path)
+        predictor = dlib.shape_predictor(args.detector_path)
         dets = detector(image, 1)
 
         # If the landmarks cannot be detected, -1 is used instead of the coordinate
