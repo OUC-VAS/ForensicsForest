@@ -6,21 +6,29 @@ from deepforest import CascadeForestClassifier
 import numpy as np
 import pandas as pd
 import time
+import argparse
+
+parser = argparse.ArgumentParser(description='Process some paths.')
+
+parser.add_argument('--dataset_path', type=str, default='./StyleGAN/', help='The path of final input features')
+
+parser.add_argument('--csv_path', type=str, default='./StyleGAN/')
+
+args = parser.parse_args()
 
 tic = time.time()
 
-X_train = np.load('./N=1/X_train.npy', allow_pickle=True)
+X_train = np.load(args.dataset_path + 'N=1/X_train.npy', allow_pickle=True)
+X_test = np.load(args.dataset_path + 'N=1/X_test.npy', allow_pickle=True)
 
-X_test = np.load('./N=1/X_test.npy', allow_pickle=True)
+X_aug_train2 = np.load(args.dataset_path + 'X_aug_train2.npy')
+X_aug_test2 = np.load(args.dataset_path + 'X_aug_test2.npy')
 
-X_aug_train2 = np.load('./X_aug_train2.npy')
-X_aug_test2 = np.load('./X_aug_test2.npy')
+X_aug_train3 = np.load(args.dataset_path + 'X_aug_train3.npy')
+X_aug_test3 = np.load(args.dataset_path + 'X_aug_test3.npy')
 
-X_aug_train3 = np.load('./X_aug_train3.npy')
-X_aug_test3 = np.load('./X_aug_test3.npy')
-
-X_aug_train4 = np.load('./X_aug_train4.npy')
-X_aug_test4 = np.load('./X_aug_test4.npy')
+X_aug_train4 = np.load(args.dataset_path + 'X_aug_train4.npy')
+X_aug_test4 = np.load(args.dataset_path + 'X_aug_test4.npy')
 
 
 a = []
@@ -46,11 +54,11 @@ for i in range(X_test.shape[0]):
 X_test = np.array(a)
 
 # label====================================================================================================================
-label = pd.read_csv('./train/train.csv')
+label = pd.read_csv(args.csv_path + 'train.csv')
 label = label["label"]
 y_train = np.array(label)
 
-label = pd.read_csv('./test/test.csv')
+label = pd.read_csv(args.csv_path + 'test.csv')
 label = label["label"]
 y_test = np.array(label)
 
