@@ -39,7 +39,7 @@ To obtain the CSV file of the dataset, run the following script in your console.
 ```
 run get_csv.py
      --dataset_path ./StyleGAN/train/ \
-     --save_csv_path ./StyleGAN/train/train.csv
+     --save_csv_path ./StyleGAN/train.csv
 ```
 
 ## Input Feature Extract
@@ -74,14 +74,24 @@ Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented f
 
 ```
 run main2.py
+    --dataset_path ./StyleGAN/
+```
+```
 run main3.py
+```
+```
+    --dataset_path ./StyleGAN/
+```
+```
 run main4.py
+    --dataset_path ./StyleGAN/
 ```
 
 Then run `main1.py` for final results as following.
 
 ```
 run main1.py
+    --dataset_path ./StyleGAN/
 ```
 
 **Notice:** For Hybrid ForensicsForest and Divide-and-Conquer ForensicsForest, you just need to change Module *Hierarchical Cascade Forest* as following.
