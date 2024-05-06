@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(description='Process some paths.')
 
 parser.add_argument('--dataset_path', type=str, default='./StyleGAN/train/',)
 
-parser.add_argument('--save_csv_path', type=str, default='./StyleGAN/train/train.csv')
+parser.add_argument('--save_csv_path', type=str, default='./StyleGAN/train.csv')
 
 args = parser.parse_args()
 
