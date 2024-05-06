@@ -78,8 +78,6 @@ run main2.py
 ```
 ```
 run main3.py
-```
-```
     --dataset_path ./StyleGAN/
 ```
 ```
