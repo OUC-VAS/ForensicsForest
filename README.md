@@ -52,13 +52,16 @@ run extract_feature.py
     --n 2  \
     --detector_path ./shape_predictor_68_face_landmarks.dat  \
     --read_path  .train/0_fake/  \
-    --save_patch_path  ./train/N=4/0_fake/ 
+    --save_patch_path  ./N=4/train/0_fake/
 ```
 
 Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
 
 ```
 run Merge.py
+    --train_feature_path ./N=4/train/  \
+    --test_feature_path ./N=4/test/  \
+    --save_path  ./N=4/
 ```
 
 ## Hierarchical Cascade Forest
