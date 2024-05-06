@@ -59,10 +59,10 @@ run extract_feature.py
     --save_feature_path /media/ForensicsForest-main/StyleGAN/N=4/train/0/
 ```
 
-Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
+Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `merge.py` to concatenate the extracted features as following.
 
 ```
-run Merge.py
+run merge.py
     --train_feature_path /media/ForensicsForest-main/StyleGAN/N=4/train/  \
     --test_feature_path /media/ForensicsForest-main/StyleGAN/N=4/test/  \
     --save_path  /media/ForensicsForest-main/StyleGAN/N=4/
