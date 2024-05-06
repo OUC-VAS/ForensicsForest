@@ -10,7 +10,7 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some paths.')
 
-parser.add_argument('--dataset_path', type=str, default='./StyleGAN/', help='The path of final input features')
+parser.add_argument('--dataset_path', type=str, default='/media/ForensicsForest-main/StyleGAN/', help='The path of final input features')
 
 args = parser.parse_args()
 
