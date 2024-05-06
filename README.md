@@ -86,14 +86,14 @@ run main3.py
 ```
 ```
 run main4.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN
+    --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 
 Then run `main1.py` for final results as following.
 
 ```
 run main1.py
-    --dataset_path /media/ForensicsForest-main/StyleGAN
+    --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 
 **Notice:** For Hybrid ForensicsForest and Divide-and-Conquer ForensicsForest, you just need to change Module *Hierarchical Cascade Forest* as following.
