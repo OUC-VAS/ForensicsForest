@@ -51,8 +51,8 @@ run extract_feature.py
     --m 2  \
     --n 2  \
     --detector_path ./shape_predictor_68_face_landmarks.dat  \
-    --read_path  ./0_fake/  \
-    --feature_path  ./N=4/0_fake/  
+    --read_path  .train/0_fake/  \
+    --save_patch_path  ./train/N=4/0_fake/ 
 ```
 
 Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
