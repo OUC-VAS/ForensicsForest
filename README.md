@@ -1,5 +1,5 @@
 # Introduction
-This repository is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964) presented in TIFS 2024. This paper describes ForensicsForest Family, a novel set of forest-based methods to detect GAN-generate faces. In contrast to the recent efforts of using CNNs, we investigate the feasibility of using forest models and introduce a series of multi-scale hierarchical cascade forests, which are ForensicsForest, Hybrid ForensicsForest, and Divide-and-Conquer ForensicsForest, respectively. 
+This repository is an implementation of the paper [ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces](https://arxiv.longhoe.net/abs/2308.00964) presented in TIFS 2024. This paper describes ForensicsForest Family, a novel set of forest-based methods to detect GAN-generate faces. In contrast to the recent efforts of using CNNs, we investigate the feasibility of using forest models and introduce a series of multi-scale hierarchical cascade forests, which are ForensicsForest, Hybrid ForensicsForest, and Divide-and-Conquer ForensicsForest, respectively.
 
 ![image](/Overview.png)
 
@@ -38,8 +38,8 @@ To obtain the CSV file of the dataset, run the following script in your console.
 
 ```
 run get_csv.py
-     --dataset_path ./StyleGAN/train/ \
-     --save_csv_path ./StyleGAN/train.csv
+     --dataset_path /media/ForensicsForest-main/StyleGAN/train/ \
+     --save_csv_path /media/ForensicsForest-main/StyleGAN/train.csv
 ```
 
 ## Input Feature Extract
@@ -50,18 +50,22 @@ image. You can extract the input features for each scale using `extract_feature.
 run extract_feature.py
     --m 2  \
     --n 2  \
-    --detector_path ./shape_predictor_68_face_landmarks.dat  \
-    --read_path  .train/0_fake/  \
-    --save_patch_path  ./N=4/train/0_fake/
+    --detector_path /media/ForensicsForest-main/shape_predictor_68_face_landmarks.dat  \
+    --read_path  /media/ForensicsForest-main/StyleGAN/train/0/  \
+    --save_patch_path  /media/ForensicsForest-main/StyleGAN/N=4/patch/train/0/  \
+    --save_feature_path1 /media/ForensicsForest-main/StyleGAN/N=4/train/0/hist/  \
+    --save_feature_path2 /media/ForensicsForest-main/StyleGAN/N=4/train/0/spec/  \
+    --save_feature_path3 /media/ForensicsForest-main/StyleGAN/N=4/train/0/landmarks/  \
+    --save_feature_path /media/ForensicsForest-main/StyleGAN/N=4/train/0/
 ```
 
 Note that `extract_feature.py` is only for the folder corresponding to the generated faces, you can modify the file path to extract the input features of the real faces, and then use `Merge.py` to concatenate the extracted features as following.
 
 ```
 run Merge.py
-    --train_feature_path ./N=4/train/  \
-    --test_feature_path ./N=4/test/  \
-    --save_path  ./N=4/
+    --train_feature_path /media/ForensicsForest-main/StyleGAN/N=4/train/  \
+    --test_feature_path /media/ForensicsForest-main/StyleGAN/N=4/test/  \
+    --save_path  /media/ForensicsForest-main/StyleGAN/N=4/
 ```
 
 ## Hierarchical Cascade Forest
@@ -70,26 +74,26 @@ For the `cascade.py` of package *deep-forest*, you can replace it with `Forensic
 
 ## Multi-scale Ensemble
 
-Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle as following. 
+Run `main2.py`, `main3.py` and `main4.py` respectively to obtain the augmented features of each sacle as following.
 
 ```
 run main2.py
-    --dataset_path ./StyleGAN/
+    --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 ```
 run main3.py
-    --dataset_path ./StyleGAN/
+    --dataset_path /media/ForensicsForest-main/StyleGAN/
 ```
 ```
 run main4.py
-    --dataset_path ./StyleGAN/
+    --dataset_path /media/ForensicsForest-main/StyleGAN
 ```
 
 Then run `main1.py` for final results as following.
 
 ```
 run main1.py
-    --dataset_path ./StyleGAN/
+    --dataset_path /media/ForensicsForest-main/StyleGAN
 ```
 
 **Notice:** For Hybrid ForensicsForest and Divide-and-Conquer ForensicsForest, you just need to change Module *Hierarchical Cascade Forest* as following.
@@ -104,7 +108,7 @@ For the `cascade.py` of package *deep-forest*, you can replace it with `D-and-C 
 
 # Citation
 
-This paper is extended from our ICME conference paper(Oral) [Forensics Forest: Multi-scale Hierarchical Cascade Forest for Detecting GAN-generated Faces](https://ieeexplore.ieee.org/abstract/document/10219895). 
+This paper is extended from our ICME conference paper(Oral) [Forensics Forest: Multi-scale Hierarchical Cascade Forest for Detecting GAN-generated Faces](https://ieeexplore.ieee.org/abstract/document/10219895).
 
 If you find our ForensicsForest useful to your research, please cite it as follows:
 
