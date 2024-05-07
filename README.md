@@ -13,8 +13,7 @@ pandas
 deep-forest 0.1.7
 dlib 19.24.0
 scikit-learn 1.0.2
-matplotlib
-opency-python
+opencv-python
 xgboost 1.6.2
 torch 1.13.1
 torchvision 0.14.1
