@@ -20,14 +20,10 @@ X_train1 = np.load(args.dataset_path + 'N=2/X_train1.npy', allow_pickle=True)
 
 X_train2 = np.load(args.dataset_path + 'N=2/X_train2.npy', allow_pickle=True)
 
-X_train3 = np.load(args.dataset_path + 'N=2/X_train3.npy', allow_pickle=True)
-
 
 X_test1 = np.load(args.dataset_path + 'N=2/X_test1.npy', allow_pickle=True)
 
 X_test2 = np.load(args.dataset_path + 'N=2/X_test2.npy', allow_pickle=True)
-
-X_test3 = np.load(args.dataset_path + 'N=2/X_test3.npy', allow_pickle=True)
 
 
 # label====================================================================================================================
