@@ -111,7 +111,7 @@ If you find our ForensicsForest useful to your research, please cite it as follo
 @article{lu2024forensicsforest,
 title={ForensicsForest Family: A Series of Multi-scale Hierarchical Cascade Forests for Detecting GAN-generated Faces},
 author={Lu, Jiucui and Zhou, Jiaran and Li, Bin and Dong, Junyu and Lyu, Siwei and Li, Yuezun},
-journal={IEEE Transactions on Information Forensics and Security},
+journal={IEEE Transactions on Information Forensics and Security(TIFS)},
 year={2024}
 }
 ```
