@@ -16,8 +16,8 @@ args = parser.parse_args()
 
 tic = time.time()
 
-X_train = np.load(args.dataset_path + 'N=1/X_train.npy', allow_pickle=True)
-X_test = np.load(args.dataset_path + 'N=1/X_test.npy', allow_pickle=True)
+X_train = np.load(args.dataset_path + 'N=1/X_train1.npy', allow_pickle=True)
+X_test = np.load(args.dataset_path + 'N=1/X_test1.npy', allow_pickle=True)
 
 X_aug_train2 = np.load(args.dataset_path + 'X_aug_train2.npy')
 X_aug_test2 = np.load(args.dataset_path + 'X_aug_test2.npy')
