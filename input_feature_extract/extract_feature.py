@@ -9,9 +9,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description='Process some paths.')
 
-parser.add_argument('--m', type=int, default=2)
+parser.add_argument('--m', type=int, default=2, help='N = m * n')
 
-parser.add_argument('--n', type=int, default=2)
+parser.add_argument('--n', type=int, default=2, help='N = m * n')
 
 parser.add_argument('--detector_path', type=str, default='/media/ForensicsForest-main/shape_predictor_68_face_landmarks.dat',)
 
