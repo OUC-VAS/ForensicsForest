@@ -69,7 +69,7 @@ run merge.py
 
 ## Hierarchical Cascade Forest
 
-For the `cascade.py` of package *deep-forest*, you can replace it with `ForensicsForest_cascade.py`.
+For the `cascade.py` of package *deep-forest*, you should replace it with `ForensicsForest_cascade.py`.
 
 ## Multi-scale Ensemble
 
