@@ -941,7 +941,7 @@ class BaseCascadeForest(BaseEstimator, metaclass=ABCMeta):
             self.predictor_ = self.buffer_.cache_predictor(self.predictor_)
         self.is_fitted_ = True
         return self
-    def fit_1Region(self, X, y, sample_weight=None):
+    def fit_1patch(self, X, y, sample_weight=None):
         X, y = check_X_y(
             X,
             y,
@@ -1188,7 +1188,7 @@ class BaseCascadeForest(BaseEstimator, metaclass=ABCMeta):
             self.predictor_ = self.buffer_.cache_predictor(self.predictor_)
         self.is_fitted_ = True
         return X_aug
-    def fit_2Region(self, X_train1, X_train2, y, sample_weight=None):
+    def fit_2patch(self, X_train1, X_train2, y, sample_weight=None):
         # self.max_layers = 4
         X_train1, y = check_X_y(
             X_train1,
@@ -1480,7 +1480,7 @@ class BaseCascadeForest(BaseEstimator, metaclass=ABCMeta):
             self.predictor_ = self.buffer_.cache_predictor(self.predictor_)
         self.is_fitted_ = True
         return X_aug
-    def fit_3Region(self, X_train1, X_train2, X_train3, y, sample_weight=None):
+    def fit_3patch(self, X_train1, X_train2, X_train3, y, sample_weight=None):
         # self.max_layers = 9
         X_train1, y = check_X_y(
             X_train1,
@@ -1814,7 +1814,7 @@ class BaseCascadeForest(BaseEstimator, metaclass=ABCMeta):
             self.predictor_ = self.buffer_.cache_predictor(self.predictor_)
         self.is_fitted_ = True
         return X_aug
-    def fit_4Region(self, X_train1, X_train2, X_train3, X_train4, y, sample_weight=None):
+    def fit_4patch(self, X_train1, X_train2, X_train3, X_train4, y, sample_weight=None):
         # self.max_layers = 4
         X_train1, y = check_X_y(
             X_train1,
@@ -2612,7 +2612,7 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         proba = self.predict_proba(X)
         y = self._decode_class_labels(np.argmax(proba, axis=1))
         return y
-    def fit_1Region(self, X_train, y, sample_weight=None):
+    def fit_1patch(self, X_train, y, sample_weight=None):
         X_train, y = check_X_y(
             X_train,
             y,
@@ -2623,8 +2623,8 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         )
         # Check the input for classification
         y = self._encode_class_labels(y)
-        return super().fit_1Region(X_train, y, sample_weight)
-    def predict_proba_1Region(self, X_test, y):
+        return super().fit_1patch(X_train, y, sample_weight)
+    def predict_proba_1patch(self, X_test, y):
         X = check_array(X_test)
         if not self.is_fitted_:
             raise AttributeError("Please fit the model first.")
@@ -2698,7 +2698,7 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
                 # Directly merge results with one cascade layer only
                 proba = _utils.merge_proba(X_aug_test_, self.n_outputs_)
         return proba, X_aug_test
-    def predict_1Region(self, X_test, y):
+    def predict_1patch(self, X_test, y):
         """
         Predict class for X.
         Parameters
@@ -2712,10 +2712,10 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
             The predicted classes.
         """
         X = check_array(X_test)
-        proba, X_aug_test = self.predict_proba_1Region(X_test, y)
+        proba, X_aug_test = self.predict_proba_1patch(X_test, y)
         y = self._decode_class_labels(np.argmax(proba, axis=1))
         return y, proba, X_aug_test
-    def fit_2Region(self, X_train1, X_train2, y, sample_weight=None):
+    def fit_2patch(self, X_train1, X_train2, y, sample_weight=None):
         X_train1, y = check_X_y(
             X_train1,
             y,
@@ -2734,8 +2734,8 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         )
         # Check the input for classification
         y = self._encode_class_labels(y)
-        return super().fit_2Region(X_train1, X_train2, y, sample_weight)
-    def predict_proba_2Region(self, X_test1, X_test2, y):
+        return super().fit_2patch(X_train1, X_train2, y, sample_weight)
+    def predict_proba_2patch(self, X_test1, X_test2, y):
         """
         Predict class probabilities for X.
         Parameters
@@ -2841,7 +2841,7 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
                 # Directly merge results with one cascade layer only
                 proba = _utils.merge_proba(X_aug_test_, self.n_outputs_)
         return proba, X_aug_test
-    def predict_2Region(self, X_test1, X_test2, y):
+    def predict_2patch(self, X_test1, X_test2, y):
         """
         Predict class for X.
         Parameters
@@ -2856,10 +2856,10 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         """
         X = check_array(X_test1)
         X = check_array(X_test2)
-        proba, X_aug_test = self.predict_proba_2Region(X_test1, X_test2, y)
+        proba, X_aug_test = self.predict_proba_2patch(X_test1, X_test2, y)
         y = self._decode_class_labels(np.argmax(proba, axis=1))
         return y, proba, X_aug_test
-    def fit_3Region(self, X_train1, X_train2, X_train3, y, sample_weight=None):
+    def fit_3patch(self, X_train1, X_train2, X_train3, y, sample_weight=None):
         X_train1, y = check_X_y(
             X_train1,
             y,
@@ -2886,8 +2886,8 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         )
         # Check the input for classification
         y = self._encode_class_labels(y)
-        return super().fit_3Region(X_train1, X_train2, X_train3, y, sample_weight)
-    def predict_proba_3Region(self, X_test1, X_test2, X_test3, y):
+        return super().fit_3patch(X_train1, X_train2, X_train3, y, sample_weight)
+    def predict_proba_3patch(self, X_test1, X_test2, X_test3, y):
         """
         Predict class probabilities for X.
         Parameters
@@ -3023,7 +3023,7 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
                 # Directly merge results with one cascade layer only
                 proba = _utils.merge_proba(X_aug_test_, self.n_outputs_)
         return proba, X_aug_test
-    def predict_3Region(self, X_test1, X_test2, X_test3, y):
+    def predict_3patch(self, X_test1, X_test2, X_test3, y):
         """
         Predict class for X.
         Parameters
@@ -3039,10 +3039,10 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         X = check_array(X_test1)
         X = check_array(X_test2)
         X = check_array(X_test3)
-        proba, X_aug_test = self.predict_proba_3Region(X_test1, X_test2, X_test3, y)
+        proba, X_aug_test = self.predict_proba_3patch(X_test1, X_test2, X_test3, y)
         y = self._decode_class_labels(np.argmax(proba, axis=1))
         return y, proba, X_aug_test
-    def fit_4Region(self, X_train1, X_train2, X_train3, X_train4, y, sample_weight=None):
+    def fit_4patch(self, X_train1, X_train2, X_train3, X_train4, y, sample_weight=None):
         X_train1, y = check_X_y(
             X_train1,
             y,
@@ -3077,8 +3077,8 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         )
         # Check the input for classification
         y = self._encode_class_labels(y)
-        return super().fit_4Region(X_train1, X_train2, X_train3, X_train4, y, sample_weight)
-    def predict_proba_4Region(self, X_test1, X_test2, X_test3, X_test4, y):
+        return super().fit_4patch(X_train1, X_train2, X_train3, X_train4, y, sample_weight)
+    def predict_proba_4patch(self, X_test1, X_test2, X_test3, X_test4, y):
         """
         Predict class probabilities for X.
         Parameters
@@ -3237,7 +3237,7 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
                 # Directly merge results with one cascade layer only
                 proba = _utils.merge_proba(X_aug_test_, self.n_outputs_)
         return proba, X_aug_test
-    def predict_4Region(self, X_test1, X_test2, X_test3, X_test4, y):
+    def predict_4patch(self, X_test1, X_test2, X_test3, X_test4, y):
         """
         Predict class for X.
         Parameters
@@ -3254,156 +3254,10 @@ class CascadeForestClassifier(BaseCascadeForest, ClassifierMixin):
         X = check_array(X_test2)
         X = check_array(X_test3)
         X = check_array(X_test4)
-        proba, X_aug_test = self.predict_proba_4Region(X_test1, X_test2, X_test3, X_test4, y)
+        proba, X_aug_test = self.predict_proba_4patch(X_test1, X_test2, X_test3, X_test4, y)
         y = self._decode_class_labels(np.argmax(proba, axis=1))
         return y, proba, X_aug_test
-    def fit_5Region(self, X_train1, X_train2, X_train3, X_train4, X_train5, y, sample_weight=None):
-        X_train1, y = check_X_y(
-            X_train1,
-            y,
-            multi_output=True
-            if type_of_target(y)
-               in ("continuous-multioutput", "multiclass-multioutput")
-            else False,
-        )
-        X_train2, y = check_X_y(
-            X_train2,
-            y,
-            multi_output=True
-            if type_of_target(y)
-               in ("continuous-multioutput", "multiclass-multioutput")
-            else False,
-        )
-        X_train3, y = check_X_y(
-            X_train3,
-            y,
-            multi_output=True
-            if type_of_target(y)
-               in ("continuous-multioutput", "multiclass-multioutput")
-            else False,
-        )
-        X_train4, y = check_X_y(
-            X_train4,
-            y,
-            multi_output=True
-            if type_of_target(y)
-               in ("continuous-multioutput", "multiclass-multioutput")
-            else False,
-        )
-        X_train5, y = check_X_y(
-            X_train5,
-            y,
-            multi_output=True
-            if type_of_target(y)
-               in ("continuous-multioutput", "multiclass-multioutput")
-            else False,
-        )
-        # Check the input for classification
-        y = self._encode_class_labels(y)
-        return super().fit_5Region(X_train1, X_train2, X_train3, X_train4, X_train5, y, sample_weight)
-    def predict_proba_5Region(self, X_test1, X_test2, X_test3, X_test4, X_test5):
-        """
-        Predict class probabilities for X.
-        Parameters
-        ----------
-        X : :obj: array-like of shape (n_samples, n_features)
-            The input samples. Internally, its dtype will be converted to
-            ``np.uint8``.
-        Returns
-        -------
-        proba : :obj:`numpy.ndarray` of shape (n_samples, n_classes)
-            The class probabilities of the input samples.
-        """
-        X_test1 = check_array(X_test1)
-        X_test2 = check_array(X_test2)
-        X_test3 = check_array(X_test3)
-        X_test4 = check_array(X_test4)
-        X_test5 = check_array(X_test5)
-        if not self.is_fitted_:
-            raise AttributeError("Please fit the model first.")
-        self._check_input(X_test1)
-        self._check_input(X_test2)
-        self._check_input(X_test3)
-        self._check_input(X_test4)
-        self._check_input(X_test5)
-        if self.verbose > 0:
-            print("{} Start to evalute the model:".format(_utils.ctime()))
-        global X_aug_test
-        global X_aug_test2
-        binner_ = self._get_binner(0)
-        # X_test = self._bin_data(binner_, X, is_training_data=False)
-        X_test_1 = self._bin_data(binner_, X_test1, is_training_data=False)
-        X_test_1 = self.buffer_.cache_data(0, X_test_1, is_training_data=False)
-        X_test_2 = self._bin_data(binner_, X_test2, is_training_data=False)
-        X_test_2 = self.buffer_.cache_data(0, X_test_2, is_training_data=False)
-        X_test_3 = self._bin_data(binner_, X_test3, is_training_data=False)
-        X_test_3 = self.buffer_.cache_data(0, X_test_3, is_training_data=False)
-        X_test_4 = self._bin_data(binner_, X_test4, is_training_data=False)
-        X_test_4 = self.buffer_.cache_data(0, X_test_4, is_training_data=False)
-        X_test_5 = self._bin_data(binner_, X_test5, is_training_data=False)
-        X_test_5 = self.buffer_.cache_data(0, X_test_5, is_training_data=False)
-        X_middle_test_1 = _utils.init_array(X_test_1, self.n_aug_features_)
-        X_middle_test_2 = _utils.init_array(X_test_2, self.n_aug_features_)
-        X_middle_test_3 = _utils.init_array(X_test_3, self.n_aug_features_)
-        X_middle_test_4 = _utils.init_array(X_test_4, self.n_aug_features_)
-        X_middle_test_5 = _utils.init_array(X_test_5, self.n_aug_features_)
-        for layer_idx in range(self.n_layers_):
-            layer = self._get_layer(layer_idx)
-            if self.verbose > 0:
-                msg = "{} Evaluating cascade layer = {:<2}"
-                print(msg.format(_utils.ctime(), layer_idx))
-            if layer_idx == 0:
-                X_aug_test_ = layer.transform(X_test_1)
-                X_aug_test = X_aug_test_
-            elif layer_idx <= self.n_layers_ - 1:
-                binner_ = self._get_binner(layer_idx)
-                X_aug_test_ = self._bin_data(
-                    binner_, X_aug_test_, is_training_data=False
-                )
-                if layer_idx % 5 == 0:
-                    X_middle_test_ = _utils.merge_array(
-                        X_middle_test_1, X_aug_test_, self.n_features_
-                    )
-                if layer_idx % 5 == 1:
-                    X_middle_test_ = _utils.merge_array(
-                        X_middle_test_2, X_aug_test_, self.n_features_
-                    )
-                if layer_idx % 5 == 2:
-                    X_middle_test_ = _utils.merge_array(
-                        X_middle_test_3, X_aug_test_, self.n_features_
-                    )
-                if layer_idx % 5 == 3:
-                    X_middle_test_ = _utils.merge_array(
-                        X_middle_test_4, X_aug_test_, self.n_features_
-                    )
-                if layer_idx % 5 == 4:
-                    X_middle_test_ = _utils.merge_array(
-                        X_middle_test_5, X_aug_test_, self.n_features_
-                    )
-                X_aug_test_ = layer.transform(X_middle_test_)
-                X_aug_test = X_aug_test_
-                if self.use_predictor:
-                    X_aug_test_ = layer.transform(X_middle_test_)
-        if self.use_predictor:
-            if self.verbose > 0:
-                print("{} Evaluating the predictor".format(_utils.ctime()))
-            binner_ = self._get_binner(self.n_layers_)
-            X_aug_test_ = self._bin_data(
-                binner_, X_aug_test_, is_training_data=False
-            )
-            X_middle_test_ = _utils.merge_array(
-                X_middle_test_, X_aug_test_, self.n_features_
-            )
-            predictor = self.buffer_.load_predictor(self.predictor_)
-            proba = predictor.predict_proba(X_middle_test_)
-        else:
-            if self.n_layers_ > 1:
-                proba = layer.predict_full(X_middle_test_)
-                proba = _utils.merge_proba(proba, self.n_outputs_)
-            else:
-                # Directly merge results with one cascade layer only
-                proba = _utils.merge_proba(X_aug_test_, self.n_outputs_)
-        return proba, X_aug_test
+
 @deepforest_model_doc(
     """Implementation of the deep forest for regression.""", "regressor_model"
 )
