@@ -297,4 +297,4 @@ if __name__ == '__main__':
 
     extract_landmarks(args.read_path, args.save_feature_path3)
 
-    merge(args.save_feature_path1, args.save_feature_path2, args.save_feature_path3, args.feature_path)
+    merge(args.save_feature_path1, args.save_feature_path2, args.save_feature_path3, args.save_feature_path)
